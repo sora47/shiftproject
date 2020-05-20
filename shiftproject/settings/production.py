@@ -1,6 +1,6 @@
 from .base import *
 
-SECTRET_KEY = os.environ.get('SECRET_KEY')
+SECTRET_KEY = os.environ.get['SECRET_KEY']
 
 DEBUG = False
 

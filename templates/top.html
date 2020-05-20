@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'top.css' %}"></link>
+{% endblock customcss %}
+
+{% block title %}トップ{% endblock title %}
+
+{% block content %}
+<center>
+    <p>ようこそ{{ user }}さん<p/>
+    <div class="btn-group-vertical">
+        <a href="{% url 'registshift' nextyear nextmonth %}" class="btn btn-secondary" role="button"
+           aria-pressed="true">シフト登録</a>
+        <a href="{% url 'viewshift' thisyear thismonth %}" class="btn btn-secondary" role="button" aria-pressed="true">シフト確認</a>
+        {% if staff %}
+        <a href="{% url 'registshiftbase' nextyear nextmonth %}" class="btn btn-secondary" role="button"
+           aria-pressed="true">シフト時間登録</a>
+        <a href="{% url 'choiceshift' nextyear nextmonth %}" class="btn btn-secondary" role="button"
+           aria-pressed="true">シフト作成</a>
+        <a href="{% url 'delete' %}" class="btn btn-secondary" role="button"
+           aria-pressed="true">アカウント削除</a>
+        <a href="{% url 'changestaff' %}" class="btn btn-secondary" role="button"
+           aria-pressed="true">シフト管理者変更</a>
+        {% endif %}
+        <br>
+        <a href="{% url 'logout' %}">ログアウト</a>
+    </div>
+</center>
+{% endblock content %}

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'registshift.css' %}"></link>
+{% endblock customcss %}
+
+{% block title %}シフト登録{% endblock title %}
+
+{% block content %}
+<form class="regist-shift" method="POST" action="">
+    <h1>
+        <a href="{% url 'viewshift' prevyear prevmonth %}" style="font-size:50%">≪前月</a>
+        {{ month }}月
+        <a href="{% url 'viewshift' nextyear nextmonth %}" style="font-size:50%">次月≫</a>
+    </h1>
+    {% if error %}
+    {{ error }}
+    {% else %}
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th scope="col" width="150px"></th>
+            {% for day in weekday %}
+            <th scope="col" width="100px">{{ day }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for weeks in formlist %}
+        <tr>
+            <th scope="row"></th>
+            {% for day in weeks.0 %}
+            <td>{{ day }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <th scope="row">10:00-14:15</th>
+            {% for day in weeks.1 %}
+            {% if day %}
+            <td>{{ day.choice }}</td>
+            {% else %}
+            <td></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        <tr>
+            <th scope="row">14:00-18:00</th>
+            {% for day in weeks.2 %}
+            {% if day %}
+            <td>{{ day.choice }}</td>
+            {% else %}
+            <td></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        <tr>
+            <th scope="row">17:30-22:00</th>
+            {% for day in weeks.3 %}
+            {% if day %}
+            <td>
+                {{ day.choice }}
+                {{ day.choice2 }}
+            </td>
+            {% else %}
+            <td></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <button class="btn btn-primary" type="submit">確認</button>
+    {% endif %}
+    {% csrf_token %}
+</form>
+{% endblock content %}

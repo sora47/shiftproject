@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'registshift.css' %}"></link>
+{% endblock customcss %}
+
+{% block head %}シフト管理者変更{% endblock head %}
+
+{% block content %}
+<form action="" method="POST">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col" width="150px">名前</th>
+            <th scope="col" width="100px"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in usermodel %}
+        <tr>
+            <th>{{ user.last_name }}</th>
+            <th><button type="submit" name="userid" value="{{ user.id }}">シフト管理者変更</button></th>
+        </tr>
+        {% endfor %}
+        </tbody>
+        {% csrf_token %}
+    </table>
+</form>
+{% endblock content %}

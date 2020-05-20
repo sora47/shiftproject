@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'registshift.css' %}"></link>
+{% endblock customcss %}
+
+{% block head %}アカウント削除{% endblock head %}
+
+{% block content %}
+{% if message %}
+{{ message }}
+{% endif %}
+<form action="" method="post">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col" width="100px">名前</th>
+            <th scope="col" width="100px"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in usermodel %}
+        <tr>
+            <th>{{ user.last_name }}</th>
+            <th><button type="submit" name="userid" value="{{ user.id }}">削除</button></th>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% csrf_token %}
+</form>
+{% endblock content %}

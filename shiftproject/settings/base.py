@@ -121,3 +121,4 @@ STATICFILES_DIRS = [
 LOGIN_URL = 'login'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+

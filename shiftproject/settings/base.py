@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from .local import *
+
+SECRET_KEY = '^qn2$2fgf%8w1dva-r&f^-qo9f$+5x8y$fc5rf6x2&4g3ardf@'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

@@ -1,1 +1,0 @@
-web: gunicorn shiftproject.wsgi --log-file -

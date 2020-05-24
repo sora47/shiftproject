@@ -6,7 +6,7 @@ staticfiles/
 *.pot
 *.pyc
 __pycache__/
-local_settings.py
+settings/local.py
 db.sqlite3
 media
 

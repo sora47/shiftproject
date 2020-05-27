@@ -1,5 +1,5 @@
 shiftproject/settings/local.py
-staticfiles/
+static/
 
 ### Django ###
 *.log

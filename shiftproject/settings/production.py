@@ -2,7 +2,7 @@ from .base import *
 
 SECTRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = True
+DEBUG = False
 
 from dj_database_url import config
 db_from_env = config(conn_max_age=600)

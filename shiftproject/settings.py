@@ -12,7 +12,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = '^qn2$2fgf%8w1dva-r&f^-qo9f$+5x8y$fc5rf6x2&4g3ardf@'
+
+DEBUG = True
+
+ALLOWED_HOSTS  = []
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -117,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets'),]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
